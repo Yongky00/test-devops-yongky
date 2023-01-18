@@ -1,0 +1,25 @@
+version: '2'
+
+services:
+  gitlab:
+    container_name: docker-gitlab
+    image: gitlab/gitlab-ce
+    ports:
+      - 80:80
+    networks:
+      main:
+        aliases:
+          - gitlab
+
+  jenkins:
+    container_name: docker-jenkins
+    image: jenkins/jenkins
+    ports:
+      - 8080:8080
+    networks:
+      main:
+        aliases:
+          - jenkins
+
+networks:
+  main:
